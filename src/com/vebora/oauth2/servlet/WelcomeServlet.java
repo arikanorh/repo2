@@ -34,7 +34,7 @@ public class WelcomeServlet extends HttpServlet
 		}
 
 		resp.getWriter().println("<img src='" + info.getPicture() + "' width=50px height:50px' />");
-		resp.getWriter().println("Welcome :" + info.getName().toUpperCase());
+		resp.getWriter().println("Welcome :" + info.getName().toUpperCase() + " : " + info.getEmail());
 		resp.getWriter().println("<br>");
 
 	}
