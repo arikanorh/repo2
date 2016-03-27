@@ -4,49 +4,59 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
-	<servlet>
-		<servlet-name>OAuth</servlet-name>
-		<servlet-class>com.vebora.oauth2.servlet.Oauth2CodeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>OAuth</servlet-name>
-		<url-pattern>/oauth2main</url-pattern>
-	</servlet-mapping>
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>OAuth</servlet-name> -->
+<!-- 		<servlet-class>com.vebora.oauth2.servlet.Oauth2CodeServlet</servlet-class> -->
+<!-- 	</servlet> -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>OAuth</servlet-name> -->
+<!-- 		<url-pattern>/oauth2main</url-pattern> -->
+<!-- 	</servlet-mapping> -->
 
-	<servlet>
-		<servlet-name>OA2Redirect</servlet-name>
-		<servlet-class>com.vebora.oauth2.servlet.Oauth2CodeCallbackServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>OA2Redirect</servlet-name>
-		<url-pattern>/oauth2callback/</url-pattern>
-	</servlet-mapping>
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>OA2Redirect</servlet-name> -->
+<!-- 		<servlet-class>com.vebora.oauth2.servlet.Oauth2CodeCallbackServlet</servlet-class> -->
+<!-- 	</servlet> -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>OA2Redirect</servlet-name> -->
+<!-- 		<url-pattern>/oauth2callback/</url-pattern> -->
+<!-- 	</servlet-mapping> -->
 
-	<servlet>
-		<servlet-name>Welcome</servlet-name>
-		<servlet-class>com.vebora.oauth2.servlet.WelcomeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Welcome</servlet-name>
-		<url-pattern>/welcome</url-pattern>
-	</servlet-mapping>
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>Welcome</servlet-name> -->
+<!-- 		<servlet-class>com.vebora.oauth2.servlet.WelcomeServlet</servlet-class> -->
+<!-- 	</servlet> -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>Welcome</servlet-name> -->
+<!-- 		<url-pattern>/welcome</url-pattern> -->
+<!-- 	</servlet-mapping> -->
 
  
 
 
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+ 
+ 
+   <servlet>
+    <servlet-name>Upload</servlet-name>
+    <servlet-class>com.vebora.oauth2.servlet.Upload</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Serve</servlet-name>
+    <servlet-class>com.vebora.oauth2.servlet.Serve</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Upload</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
 
- <filter>
-		<filter-name>CookieFilter</filter-name>
-		<filter-class>com.vebora.oauth2.servlet.CookieFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>CookieFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
- 
- 
+  <servlet-mapping>
+    <servlet-name>Serve</servlet-name>
+    <url-pattern>/serve</url-pattern>
+  </servlet-mapping>
 
 </web-app>
