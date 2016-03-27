@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.api.client.auth.oauth2.AuthorizationCodeFlow;
 import com.google.api.client.auth.oauth2.AuthorizationCodeResponseUrl;
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.extensions.servlet.auth.oauth2.AbstractAuthorizationCodeCallbackServlet;
 import com.google.api.client.http.GenericUrl;
 import com.vebora.oauth2.cache.Cache;
 import com.vebora.oauth2.main.user.UserIdSupplier;
@@ -18,8 +17,6 @@ import com.vebora.oauth2.main.user.UserIdSupplier;
 @SuppressWarnings("serial")
 public class Oauth2CodeCallbackServlet extends AbstractAuthorizationCodeCallbackServlet
 {
-
-	private String userId;
 
 	@Override
 	protected AuthorizationCodeFlow initializeFlow() throws ServletException, IOException
@@ -38,12 +35,11 @@ public class Oauth2CodeCallbackServlet extends AbstractAuthorizationCodeCallback
 	@Override
 	protected String getUserId(HttpServletRequest req) throws ServletException, IOException
 	{
-		userId = UserIdSupplier.getOrCreateUserIdFromHttpRequest(req);
-		return userId;
+		return UserIdSupplier.getOrCreateUserIdFromHttpRequest(req);
 	}
 
 	@Override
-	protected void onSuccess(HttpServletRequest req, HttpServletResponse resp, Credential credential) throws ServletException, IOException
+	protected void onSuccess(HttpServletRequest req, HttpServletResponse resp, Credential credential, String userId) throws ServletException, IOException
 	{
 		Cookie cook = new Cookie(Cache.USER_ID, userId);
 		cook.setPath("/");
